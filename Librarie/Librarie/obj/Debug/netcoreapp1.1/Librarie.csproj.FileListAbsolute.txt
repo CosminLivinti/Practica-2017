@@ -1,0 +1,10 @@
+E:\Practica 2017\Librarie\Librarie\bin\Debug\netcoreapp1.1\Librarie.deps.json
+E:\Practica 2017\Librarie\Librarie\bin\Debug\netcoreapp1.1\Librarie.runtimeconfig.json
+E:\Practica 2017\Librarie\Librarie\bin\Debug\netcoreapp1.1\Librarie.runtimeconfig.dev.json
+E:\Practica 2017\Librarie\Librarie\bin\Debug\netcoreapp1.1\Librarie.dll
+E:\Practica 2017\Librarie\Librarie\bin\Debug\netcoreapp1.1\Librarie.pdb
+E:\Practica 2017\Librarie\Librarie\obj\Debug\netcoreapp1.1\Librarie.csprojResolveAssemblyReference.cache
+E:\Practica 2017\Librarie\Librarie\obj\Debug\netcoreapp1.1\UserSecretsAssemblyInfo.cs
+E:\Practica 2017\Librarie\Librarie\obj\Debug\netcoreapp1.1\Librarie.AssemblyInfo.cs
+E:\Practica 2017\Librarie\Librarie\obj\Debug\netcoreapp1.1\Librarie.dll
+E:\Practica 2017\Librarie\Librarie\obj\Debug\netcoreapp1.1\Librarie.pdb

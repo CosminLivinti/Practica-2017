@@ -1,0 +1,27 @@
+﻿tr>th, tr>td{
+    padding: 5px 25px;
+}
+
+table, th, td{
+    text-align:center;
+}
+
+.search-button {
+    background-color: #42d9f4;
+    border: 0px;
+    padding: 5px 25px;
+    color: white;
+    position: relative;
+    left: -10px;
+}
+
+.text-search{
+    padding:3px 0px;
+    width:200px;
+}
+
+.search-form{
+    position:relative;
+    left:50px;
+    top:-5px;
+}
