@@ -8,6 +8,8 @@ namespace Librarie.Services
 {
     public interface ILibraryService
     {
-        List<Book> getBooks();
+        List<Book> GetBooks();
+        List<Tranzaction> GetTranzactions();
+        bool Borrow(string userId, int id);
     }
 }

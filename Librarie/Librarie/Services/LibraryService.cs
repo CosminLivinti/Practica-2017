@@ -3,21 +3,41 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Librarie.Data.Entities;
+using Librarie.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace Librarie.Services
 {
     public class LibraryService : ILibraryService
     {
-        public List<Book> getBooks()
+
+        private ApplicationDbContext _applicationDbService;
+
+        public LibraryService(ApplicationDbContext applicationDbService)
         {
-            return new List<Book>()
+            _applicationDbService = applicationDbService;
+        }
+
+        public List<Book> GetBooks()
+        {
+            return _applicationDbService.books.ToList();
+        }
+
+        public List<Tranzaction> GetTranzactions()
+        {
+            return _applicationDbService.Tranzactions.Include(item => item.User).ToList();
+        }
+
+        public bool Borrow(string userId, int id)
+        {
+            _applicationDbService.Tranzactions.Add(new Tranzaction
             {
-                new Book() { id = 1, title = "The Autumn Republic", author = "Brian McClellan"},
-                new Book() { id = 2, title = "Anna Karenina", author = "Lev Tolstoi"},
-                new Book() { id = 3, title = "Hamlet", author = "William Shakespeare"},
-                new Book() { id = 4, title = "Norse Mythology", author = "Neil Gaiman"},
-                new Book() { id = 5, title = "Caraval", author = "Stephanie Garber"}
-            };
+                UserId = userId,
+                BookId = id
+            });
+
+            return _applicationDbService.SaveChanges() == 1;
+            
         }
     }
 }

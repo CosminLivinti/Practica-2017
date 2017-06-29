@@ -13,6 +13,8 @@ namespace Librarie.Data
     {
         public DbSet<Book> books { get; set; }
 
+        public DbSet<Tranzaction> Tranzactions { get; set; }
+
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
