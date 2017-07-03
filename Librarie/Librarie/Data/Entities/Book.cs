@@ -10,5 +10,7 @@ namespace Librarie.Data.Entities
         public int id { get; set; }
         public String title { get; set; }
         public String author { get; set; }
+        public string Type { get; set; }
+        public int Score { get; set; }
     }
 }

@@ -27,9 +27,9 @@ namespace Librarie.Controllers
         {
             var books = _libraryService.GetBooks(); //luam cartile din DB prin intermediul unui LibraryService
 
-            var model = new LibraryViewModel(books);
-
             var tranzactions = _libraryService.GetTranzactions();
+
+            var model = new LibraryViewModel(books,tranzactions);
 
             model.informations.NumberOfBooks = model.books.Count;
             model.informations.Date = DateTime.Now;
@@ -52,6 +52,21 @@ namespace Librarie.Controllers
             };
 
             return View(borrowViewModel);
+        }
+
+        public IActionResult Return(int id)
+        {
+            var userId = HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+            bool isSuccessful = _libraryService.Return(id, userId);
+
+            var returnViewModel = new ReturnViewModel()
+            {
+                IsSuccessful = isSuccessful,
+                BookName = _libraryService.GetBooks().Single(t => t.id == id)?.title
+        };
+
+            return View(returnViewModel);
         }
     }
 }

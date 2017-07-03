@@ -11,5 +11,6 @@ namespace Librarie.Services
         List<Book> GetBooks();
         List<Tranzaction> GetTranzactions();
         bool Borrow(string userId, int id);
+        bool Return(int id, string userId);
     }
 }

@@ -39,5 +39,14 @@ namespace Librarie.Services
             return _applicationDbService.SaveChanges() == 1;
             
         }
+
+        public bool Return(int id,string userId)
+        {
+            var tranzaction = _applicationDbService.Tranzactions.Single(t => t.BookId == id && t.UserId == userId);
+
+            _applicationDbService.Tranzactions.Remove(tranzaction);
+
+            return _applicationDbService.SaveChanges() == 1;
+        }
     }
 }

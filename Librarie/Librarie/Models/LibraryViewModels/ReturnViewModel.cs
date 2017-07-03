@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace Librarie.Models.LibraryViewModels
 {
-    public class BorrowViewModel
+    public class ReturnViewModel
     {
-        public bool isSuccessful { get; set; }
+        public bool IsSuccessful { get; set; }
         public string BookName { get; set; }
     }
 }

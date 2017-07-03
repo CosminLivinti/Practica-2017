@@ -23,7 +23,25 @@
                 <td>@book.id</td>
                 <td>@book.title</td>
                 <td>@book.author</td>
-                <td>@Html.ActionLink("Borrow","Borrow", new { id = @book.id },new { @class="btn btn-primary" })</td>
+                @{ bool isBorrowed = false;}
+                @foreach(var tranzaction in Model.tranzactions)
+                {
+                    if(book.id == tranzaction.BookId)
+                    {
+                        isBorrowed = true;
+                        break;
+                    }
+                }
+                <td>
+                    @if (isBorrowed)
+                    {
+                        @Html.ActionLink("Return", "Return", new { id = @book.id }, new { @class = "btn btn-warning"})
+                    }
+                    else
+                    {
+                        @Html.ActionLink("Borrow", "Borrow", new { id = @book.id }, new { @class = "btn btn-primary" })
+                    }
+                </td>
             </tr>
         }
     </tbody>
