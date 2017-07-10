@@ -20,7 +20,7 @@ namespace Librarie.Services
 
         public List<Book> GetBooks()
         {
-            return _applicationDbService.books.ToList();
+            return _applicationDbService.Books.ToList();
         }
 
         public List<Tranzaction> GetTranzactions()
@@ -36,7 +36,11 @@ namespace Librarie.Services
                 BookId = id
             });
 
-            return _applicationDbService.SaveChanges() == 1;
+            var book = _applicationDbService.Books.Single(t => t.id == id);
+            book.numberOfCopies--;
+            _applicationDbService.Books.Update(book);
+
+            return _applicationDbService.SaveChanges() == 2;
             
         }
 
@@ -44,9 +48,13 @@ namespace Librarie.Services
         {
             var tranzaction = _applicationDbService.Tranzactions.Single(t => t.BookId == id && t.UserId == userId);
 
+            var book = _applicationDbService.Books.Single(t => t.id == id);
+            book.numberOfCopies++;
+            _applicationDbService.Books.Update(book);
+
             _applicationDbService.Tranzactions.Remove(tranzaction);
 
-            return _applicationDbService.SaveChanges() == 1;
+            return _applicationDbService.SaveChanges() == 2;
         }
     }
 }

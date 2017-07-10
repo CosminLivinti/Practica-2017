@@ -11,7 +11,7 @@ namespace Librarie.Data
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-        public DbSet<Book> books { get; set; }
+        public DbSet<Book> Books { get; set; }
 
         public DbSet<Tranzaction> Tranzactions { get; set; }
 

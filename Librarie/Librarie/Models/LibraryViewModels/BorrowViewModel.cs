@@ -9,6 +9,5 @@ namespace Librarie.Models.LibraryViewModels
     {
         public bool isSuccessful { get; set; }
         public string BookName { get; set; }
-        public int numberOfBooks { get; set; }
     }
 }

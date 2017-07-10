@@ -15,6 +15,7 @@
             <th>Title</th>
             <th>Author</th>
             <th>Action</th>
+            <th>Copies</th>
         </tr>
     </thead>
     <tbody>
@@ -34,22 +35,29 @@
                     {
                         isBorrowed = true;
                         userId = tranzaction.UserId;
-                        break;
+                        if (userId == currentUserId)
+                        {
+                            break;
+                        }
                     }
                 }
                 <td>
+                    
                     @if (isBorrowed && currentUserId == userId)
                     {
                         @Html.ActionLink("Return", "Return", new { id = @book.id }, new { @class = "btn btn-warning"})
                     }
-                    else if(isBorrowed && currentUserId != userId)
+                    else if(book.numberOfCopies == 0)
                     {
-                        @Html.ActionLink("Borrow","Borrow",new { id = @book.id }, new { @class = "btn btn-primary", disabled = "disabled" } )
+                        <p>Exhausted</p>
                     }
                     else
                     {
                         @Html.ActionLink("Borrow", "Borrow", new { id = @book.id }, new { @class = "btn btn-primary" })
                     }
+                </td>
+                <td>
+                    @book.numberOfCopies
                 </td>
             </tr>
         }

@@ -30,7 +30,8 @@ namespace Librarie.Models.LibraryViewModels
                 {
                     id = book.id,
                     title = book.title,
-                    author = book.author
+                    author = book.author,
+                    numberOfCopies = book.numberOfCopies
                 };
 
                 books.Add(bookViewModel);
@@ -49,7 +50,8 @@ namespace Librarie.Models.LibraryViewModels
                 {
                     id = book.id,
                     title = book.title,
-                    author = book.author
+                    author = book.author,
+                    numberOfCopies = book.numberOfCopies
                 };
 
                 books.Add(bookViewModel);

@@ -10,5 +10,6 @@ namespace Librarie.Models.LibraryViewModels
         public int id { set; get; }
         public String title { set; get; } 
         public String author { set; get; }
+        public int numberOfCopies { set; get; }
     }
 }
