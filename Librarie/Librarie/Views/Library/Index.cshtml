@@ -1,4 +1,5 @@
 @model Librarie.Models.LibraryViewModels.LibraryViewModel
+@using System.Security.Claims;
 @{
    
     ViewData["Title"] = "Librarie";
@@ -23,19 +24,27 @@
                 <td>@book.id</td>
                 <td>@book.title</td>
                 <td>@book.author</td>
-                @{ bool isBorrowed = false;}
+                @{ bool isBorrowed = false;
+                   string userId = null;
+                   string currentUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                }
                 @foreach(var tranzaction in Model.tranzactions)
                 {
                     if(book.id == tranzaction.BookId)
                     {
                         isBorrowed = true;
+                        userId = tranzaction.UserId;
                         break;
                     }
                 }
                 <td>
-                    @if (isBorrowed)
+                    @if (isBorrowed && currentUserId == userId)
                     {
                         @Html.ActionLink("Return", "Return", new { id = @book.id }, new { @class = "btn btn-warning"})
+                    }
+                    else if(isBorrowed && currentUserId != userId)
+                    {
+                        @Html.ActionLink("Borrow","Borrow",new { id = @book.id }, new { @class = "btn btn-primary", disabled = "disabled" } )
                     }
                     else
                     {
